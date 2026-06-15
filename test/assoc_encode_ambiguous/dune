@@ -1,0 +1,4 @@
+(test
+ (name assoc_encode_ambiguous)
+ (modules Assoc_encode_ambiguous)
+ (libraries tokenization utils))

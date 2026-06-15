@@ -1,0 +1,6 @@
+voc = [("ca", 13); ("can", 7); ("ada", 12); ("nada", 72)]
+s = "canada"
+encode voc s = [7; 12]
+voc = [("c", 1); ("can", 7); ("canal", 92); ("ada", 12); ("ca", 13); ("nada", 72)]
+s = "canada"
+encode voc s = [7; 12]

@@ -1,0 +1,12 @@
+let prefix_tree =
+let node1 = {id=Some(0); successors=[]} in
+let node3 = {id=Some(6); successors=[]} in
+let node2 = {id=None; successors=[('a', Node node3)]} in
+let node5 = {id=Some(7); successors=[]} in
+let node7 = {id=Some(5); successors=[]} in
+let node6 = {id=None; successors=[('l', Node node7)]} in
+let node4 = {id=None; successors=[('i', Node node5); ('o', Node node6)]} in
+Node {id=None; successors=[(' ', Node node1); ('l', Node node2); ('s', Node node4)]}
+
+s = "sol la si"
+encode_aux prefix_tree s = [5; 0; 6; 0; 7]

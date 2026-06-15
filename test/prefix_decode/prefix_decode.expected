@@ -1,0 +1,19 @@
+let node1 = {id=Some(0); successors=[]} in
+let node3 = {id=Some(6); successors=[]} in
+let node2 = {id=None; successors=[('a', Node node3)]} in
+let node5 = {id=Some(7); successors=[]} in
+let node7 = {id=Some(5); successors=[]} in
+let node6 = {id=None; successors=[('l', Node node7)]} in
+let node4 = {id=None; successors=[('i', Node node5); ('o', Node node6)]} in
+{
+  token_of_id = [|Some(" "); None; None; None; None; Some("sol"); Some("la"); Some("si")|];
+  prefix_tree = Node {id=None; successors=[(' ', Node node1); ('l', Node node2); ('s', Node node4)]}
+}
+ids = [5; 0; 6; 0; 7]
+decode voc ids = "sol la si"
+ids = [5; 3; 7]
+decode voc ids = DecodingError 3
+ids = [5; 42; 7]
+decode voc ids = DecodingError 42
+ids = [5; -3; 7]
+decode voc ids = DecodingError -3

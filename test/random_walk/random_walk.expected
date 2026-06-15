@@ -1,0 +1,26 @@
+`random_walk ~length:1 ~start:0 mc_example` renvoie
+a avec probabilité 100%
+
+`random_walk ~length:2 ~start:0 mc_example` renvoie
+ab avec probabilité 50%
+ag avec probabilité 50%
+
+`random_walk ~length:3 ~start:0 mc_example` renvoie
+abc avec probabilité 25%
+abd avec probabilité 8%
+abe avec probabilité 17%
+ag avec probabilité 50%
+
+`random_walk ~length:4 ~start:0 mc_example` renvoie
+abc avec probabilité 25%
+abd avec probabilité 8%
+abef avec probabilité 17%
+ag avec probabilité 50%
+
+`random_walk ~length:5 ~start:0 mc_example` renvoie
+abc avec probabilité 25%
+abd avec probabilité 8%
+abefb avec probabilité 8%
+abefg avec probabilité 8%
+ag avec probabilité 50%
+

@@ -1,0 +1,5 @@
+(library
+ (name markovChain)
+ (modules randomWalk learner textGenerator)
+ (libraries definitions tokenization)
+)

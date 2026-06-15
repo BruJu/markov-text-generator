@@ -1,0 +1,9 @@
+batch = ["facile"]
+learn batch = ['f'; 'a'; 'c'; 'i'; 'l'; 'e']
+
+batch = ["abracadabra"; "pffouit"]
+learn batch = ['a'; 'b'; 'r'; 'c'; 'd'; 'p'; 'f'; 'o'; 'u'; 'i'; 't']
+
+batch = ["difficile"; "pas facile"]
+learn batch = ['d'; 'i'; 'f'; 'c'; 'l'; 'e'; 'p'; 'a'; 's'; ' ']
+

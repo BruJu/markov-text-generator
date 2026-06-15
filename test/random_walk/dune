@@ -1,0 +1,4 @@
+(test
+ (name random_walk)
+ (modules Random_walk)
+ (libraries markovChain utils))

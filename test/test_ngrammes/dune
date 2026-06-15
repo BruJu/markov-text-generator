@@ -1,0 +1,4 @@
+(test
+ (name test_ngrammes)
+ (modules test_ngrammes)
+ (libraries markovChain utils))

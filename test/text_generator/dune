@@ -1,0 +1,4 @@
+(test
+ (name text_generator)
+ (modules Text_generator)
+ (libraries markovChain))

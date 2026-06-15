@@ -1,0 +1,17 @@
+let prefix_tree =
+let node3 = {id=Some(5); successors=[]} in
+let node2 = {id=None; successors=[('a', Node node3)]} in
+let node1 = {id=None; successors=[('d', Node node2)]} in
+let node8 = {id=Some(3); successors=[]} in
+let node7 = {id=None; successors=[('l', Node node8)]} in
+let node6 = {id=Some(7); successors=[('a', Node node7)]} in
+let node5 = {id=Some(6); successors=[('n', Node node6)]} in
+let node4 = {id=Some(1); successors=[('a', Node node5)]} in
+let node12 = {id=Some(9); successors=[]} in
+let node11 = {id=None; successors=[('a', Node node12)]} in
+let node10 = {id=None; successors=[('d', Node node11)]} in
+let node9 = {id=None; successors=[('a', Node node10)]} in
+Node {id=None; successors=[('a', Node node1); ('c', Node node4); ('n', Node node9)]}
+
+s = "canada"
+encode_aux prefix_tree s = [7; 5]

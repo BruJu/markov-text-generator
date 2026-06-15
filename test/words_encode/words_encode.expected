@@ -1,0 +1,6 @@
+voc = [("hello", 13); (" ", 4); ("world", 7); ("!", 12)]
+s = "hello world!!"
+encode voc s = [13; 4; 7; 12; 12]
+voc = [("hello", 13); ("world", 7); (" ", 4); ("!", 12)]
+s = "hello helloworld!!"
+encode voc s = EncodingError "helloworld!!"

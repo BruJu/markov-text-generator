@@ -1,0 +1,4 @@
+(test
+ (name assoc_decode)
+ (modules Assoc_decode)
+ (libraries tokenization utils))

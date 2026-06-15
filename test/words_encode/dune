@@ -1,0 +1,4 @@
+(test
+ (name words_encode)
+ (modules Words_encode)
+ (libraries tokenization utils))

@@ -1,0 +1,28 @@
+
+TEST DE L'ALGO BPE.
+⚠⚠⚠ Attention l'algo est non-déterministe! ⚠⚠⚠
+Pusieurs digrammes peuvent avoir la même fréquence et
+être considérés comme "plus fréquents". 
+L'algo BPE doit en choisir un parmi tous.
+Selon les choix faits, on obtient des vocabulaires différents.
+Les tests ci-dessous évitent cette situation.
+Cependant, si vous comparez votre algo avec celui d'un autre étudiant,
+ou d'un prof, et que ce n'est pas sur des exemples "non ambigus" 
+comme ci-dessus, méfiez-vous! Deux codes peuvent implémenter BPE 
+correctement et donner néanmoins des résultats différents.
+
+
+règles de fusion calculées par l'algo BPE sur la chaîne de caractères
+s = "ab,ab.ab;ab."
+avec !max_vocab_size = 7
+voir https://en.wikipedia.org/wiki/Byte_pair_encoding
+a + b -> ab
+ab + . -> ab.
+algo BPE  sur le batch
+"["hugging"; "hug"; "hugger"; "hub"; "in"; "twin"; "sin"; "pin"]"
+avec !max_vocab_size = 16
+voir https://huggingface.co/learn/nlp-course/chapter6/5?fw=pt
+h + u -> hu
+hu + g -> hug
+hug + g -> hugg
+i + n -> in

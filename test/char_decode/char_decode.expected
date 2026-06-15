@@ -1,0 +1,9 @@
+voc = ['a'; 'b'; 'r'; 'c'; 'd']
+ids = [0; 1; 2; 0; 3; 0; 4; 0; 1; 2; 0]
+decode voc ids = "abracadabra"
+voc = ['a'; 'b'; 'r'; 'c'; 'd']
+ids = [0; 1; 7; 3]
+decode voc ids = DecodingError 7
+voc = ['a'; 'b'; 'r'; 'c'; 'd']
+ids = [0; -1; 0; 3]
+decode voc ids = DecodingError -1

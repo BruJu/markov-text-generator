@@ -1,0 +1,4 @@
+(test
+ (name test_bpe)
+ (modules test_bpe)
+ (libraries tokenization utils))

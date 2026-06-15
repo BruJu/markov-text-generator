@@ -1,0 +1,3 @@
+voc = [("Hello, ", 13); ("world", 7); ("!", 12)]
+s = "Hello, Nice!!"
+encode voc s = EncodingError "Nice!!"

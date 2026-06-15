@@ -1,0 +1,4 @@
+(test
+ (name char_decode)
+ (modules Char_decode)
+ (libraries tokenization utils))

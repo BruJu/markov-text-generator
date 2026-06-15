@@ -1,0 +1,4 @@
+(test
+ (name learn_markov_chain)
+ (modules learn_markov_chain)
+ (libraries markovChain utils))

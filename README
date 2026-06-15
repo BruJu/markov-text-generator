@@ -1,0 +1,14 @@
+# Génération markovienne de texte en langage naturel
+
+Il s'agit d'une implémentation du projet de l'UE de Programmation Fonctionnelle
+de Etienne Lozes en 2023-2024.
+
+Page du cours : https://webusers.i3s.unice.fr/~elozes/enseignement/PF/ 
+
+Page du projet : https://webusers.i3s.unice.fr/~elozes/enseignement/PF/projet/sujet/sujet-projet-2023-2024.html
+
+Le sujet précise que les dépôts peuvent être rendus public à la fin du semestre.
+
+
+- La question 1.1 (encodage de caractères) a été traitée.
+- La question 1.2 (encodage de mots) a été traitée. Le choix a été fait d'avoir une implémentation avec une solution plus simple mais sous optimale car les questions suivantes ont pour but d'implémenter de meilleurs algorithmes.

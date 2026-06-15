@@ -1,0 +1,4 @@
+(test
+ (name assoc_encode_error)
+ (modules Assoc_encode_error)
+ (libraries tokenization utils))

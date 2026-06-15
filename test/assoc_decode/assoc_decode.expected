@@ -1,0 +1,6 @@
+voc = [("hello", 13); (" ", 4); ("world", 7)]
+ids = [13; 4; 7]
+decode voc ids = "hello world"
+voc = [("hello", 13); (" ", 4); ("world", 7)]
+ids = [13; 5; 7]
+decode voc ids = DecodingError 5

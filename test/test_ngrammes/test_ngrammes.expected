@@ -1,0 +1,21 @@
+l = ['a'; 'b'; 'c'; 'd'; 'e'; 'f']
+ngrammes 3 l = [['a'; 'b'; 'c']; ['b'; 'c'; 'd']; ['c'; 'd'; 'e']; ['d'; 'e'; 'f']]
+
+l = ["longtemps"; "je"; "me"; "suis"; "couché"]
+ngrammes 2 l = [["longtemps"; "je"]; ["je"; "me"]; ["me"; "suis"]; ["suis"; "couché"]]
+
+l = ['a'; 'b'; 'c'; 'd'; 'e'; 'f']
+ngrammes 10 l = []
+
+l = ['a'; 'b'; 'c'; 'd'; 'e'; 'f']
+ngrammes 1 l = [['a']; ['b']; ['c']; ['d']; ['e']; ['f']]
+
+l = []
+ngrammes 1 l = []
+
+l = ['a'; 'b'; 'c'; 'd'; 'e'; 'f']
+ngrammes -1 l = Invalid_argument ("ngrammes")
+
+l = ['a'; 'b'; 'c'; 'd'; 'e'; 'f']
+ngrammes 0 l = Invalid_argument ("ngrammes")
+

@@ -1,0 +1,4 @@
+(test
+ (name char_learn)
+ (modules Char_learn)
+ (libraries tokenization utils))

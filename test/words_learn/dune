@@ -1,0 +1,4 @@
+(test
+ (name words_learn)
+ (modules Words_learn)
+ (libraries tokenization utils))
