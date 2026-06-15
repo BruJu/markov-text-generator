@@ -12,3 +12,7 @@ Le sujet précise que les dépôts peuvent être rendus public à la fin du seme
 
 - La question 1.1 (encodage de caractères) a été traitée.
 - La question 1.2 (encodage de mots) a été traitée. Le choix a été fait d'avoir une implémentation avec une solution plus simple mais sous optimale car les questions suivantes ont pour but d'implémenter de meilleurs algorithmes.
+- La question 1.3 (encodage de prefixes) a été traitée. Le décodage est un copier coller du décodagede la 1.2 parce qu'il n'est pas autorisé par le sujet de modifier la chaîne de compilation.
+- La question 1.4 (encodage d'arbre préfixe) a été traitée.
+
+- La question 2.1 (N-grammes) a été traitée
