@@ -17,4 +17,6 @@ Le sujet précise que les dépôts peuvent être rendus public à la fin du seme
 
 - La question 2.1 (N-grammes) a été traitée
 - La question 2.2 (random walk) a été traitée
+- La question 2.3 (markov chain learning) a été traitée
+- La question 2.4 (bpe) a été traitée. L'algorithme est pas forcément ultra optimal (c'est pas tail recursive), et comme aucun test ne demande d'implémenter encode, je ne l'ai pas implémenté.
 
