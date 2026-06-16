@@ -19,4 +19,7 @@ Le sujet précise que les dépôts peuvent être rendus public à la fin du seme
 - La question 2.2 (random walk) a été traitée
 - La question 2.3 (markov chain learning) a été traitée
 - La question 2.4 (bpe) a été traitée. L'algorithme est pas forcément ultra optimal (c'est pas tail recursive), et comme aucun test ne demande d'implémenter encode, je ne l'ai pas implémenté.
+- La question 2.5 (text generator) a été traitée
 
+Si on charge avec le texte swann.txt on a un stack overflow.
+En l'état actuel, on est aussi limité par le fait que je n'ai implémenté que les fonctions demandées. Or, si on veut utiliser prefix tree, il faudrait coder sa fonction learn.
