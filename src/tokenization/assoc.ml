@@ -49,27 +49,10 @@ module Tokenizer = struct
 
   let decode voc l = 
     (* J'ai déjà vu ce film *)
-    (*
-      Copier coller de l'implem dans words.ml
-      J'aurais bien importé la fonction mais le sujet
-      n'autorise pas à modifier autre chose que les fichiers ml
-    *)
-    (* I'll do a slow implementation because I'm pretty sure these functions will be unused in the final implementation *)
-    let rec reverse_assoc_opt value l =
-      match l with
-      | [] -> None
-      | (fd_key, fd_val)::_ when fd_val = value -> Some(fd_key)
-      | _::tl -> reverse_assoc_opt value tl
-    in
-    let rec aux voc ids =
-      match ids with
-      | [] -> ""
-      | id::rest -> (
-        match reverse_assoc_opt id voc with
-        | None -> raise (DecodingError id)
-        | Some(str) -> str ^ (aux voc rest)
-      )
-    in aux voc l
+    try
+      Words.Tokenizer.decode voc l
+    with 
+    | Words.Tokenizer.DecodingError e -> raise (DecodingError e)
 
   let learn _batch = failwith "not implemented"
 
