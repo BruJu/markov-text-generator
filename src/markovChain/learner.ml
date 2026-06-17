@@ -8,18 +8,19 @@ let add_occurrence
   =
   let rec modify_in_list
     (dst: int)
+    (token: 'a)
     (list: 'a Definitions.MarkovChain.edge list)
     : bool =
     match list with
     | [] -> false
-    | hd::_ when hd.dest = dst ->
+    | hd::_ when hd.dest = dst && hd.token = token ->
         begin
           hd.weight <- hd.weight + 1;
           true
         end
-    | _::tl -> modify_in_list dst tl
+    | _::tl -> modify_in_list dst token tl
   in
-  if modify_in_list dst list
+  if modify_in_list dst token list
     then list
     else ({ token = token; weight = 1; dest = dst })::list
 
