@@ -87,28 +87,28 @@ module Tokenizer = struct
     in aux voc ids
 
   let learn (batch: string list): vocabulary = 
-    let add_in_dict (dict: vocabulary) (word: string): vocabulary =
-      let rec aux dict word pos =
-        match dict with
-        | [] -> [word, pos]
-        | hd::_ when (fst hd) = word -> dict
-        | hd::tl -> hd::(aux tl word (pos + 1))
-      in aux dict word 0
+    let table = Hashtbl.create 1000 in
+    let next_id = ref 0 in
+    let add_in_dict (word: string) =
+      match Hashtbl.find_opt table word with
+      | None -> 
+          begin
+            Hashtbl.add table word !next_id;
+            next_id := !next_id + 1
+          end
+      | Some(_) -> ()
     in
-    let rec add_multiple_in_dict dict words =
-      match words with
-      | [] -> dict
-      | word::rest -> add_multiple_in_dict (add_in_dict dict word) rest
+    let add_text text =
+      let cutted = alpha_blocks text in
+      let mapped = List.map (fun (a, _b) -> a) cutted in
+      List.iter add_in_dict mapped
     in
-    let rec process_words words dict =
-      match words with
-      | [] -> dict
-      | word::rest -> (
-          let cutted = alpha_blocks word in
-          let mapped = List.map (fun (a, _b) -> a) cutted in
-          process_words rest (add_multiple_in_dict dict mapped)
-      )
-    in process_words batch []
+    let process_words texts =
+      List.iter add_text texts
+    in
+    process_words batch;
+    table |> Hashtbl.to_seq |> List.of_seq
+    |> List.sort (fun a b -> snd a - snd b)
 end
 
 module TokenizerCheckType : Definitions.Tokenizer.TOKENIZER = Tokenizer

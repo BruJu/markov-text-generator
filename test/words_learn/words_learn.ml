@@ -7,6 +7,8 @@ let runtest batch =
     (string_of_list string_of_string batch)  
     (string_of_vocabulary (learn batch))
 
+let () = runtest ["a"]
+
 let () = runtest ["hello world"]
 
 let () = runtest ["Le \"coupe-faim,\""; "c'est pour la pause."; ""]
