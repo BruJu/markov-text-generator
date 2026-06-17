@@ -30,7 +30,11 @@ let load_files (files: string list): string list =
   in
   load_files_tlr files []
 
-module Tokenizer = Tokenization.Words.Tokenizer
+(*
+Manque encode de BPE
+module Tokenizer = Tokenization.Bpe.Make(Tokenization.PrefixTree.Tokenizer)
+*)
+module Tokenizer = Tokenization.PrefixTree.Tokenizer
 
 let run
   ~(files: string list)
@@ -53,8 +57,8 @@ let run
   let ngrammes_flat = List.concat ngrammes in  
   Format.printf "ngrammes flat size = %d\n" (List.length ngrammes_flat);
   (* en déduire une chaîne de Markov *)
-  let token_of_arc (_a:int) (b:int) = 
-    Tokenizer.decode voc [b]
+  let token_of_arc (_a:int) (_b:int) = 
+    Tokenizer.decode voc [_b]
   in
   let chain = Learner.learn_markov_chain
     ~token_of_arc:token_of_arc

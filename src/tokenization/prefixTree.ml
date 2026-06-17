@@ -89,8 +89,56 @@ module Tokenizer = struct
     ignore l;
     failwith "todo!"
 
-  let learn _batch = failwith "not implemented" 
+  let add_word_in_pf (word: string) (token_id: int) (pf: node): unit =
+    let find_successor (pf: node) (letter: char): node =
+      let rec find_existing (letter: char) (succ: (char * prefix_tree) list): prefix_tree option =
+        match succ with
+        | [] -> None
+        | (c, pf)::_ when c = letter -> Some(pf)
+        | _::tl -> find_existing letter tl
+      in
+      match find_existing letter pf.successors with
+      | Some(Node(succ)) -> succ
+      | None ->
+          begin
+            let new_node = { id = None ; successors = [] } in
+            pf.successors <- (letter, Node(new_node)) :: pf.successors;
+            new_node
+          end
+    in
+    let rec aux (word: string) (i_word: int) (token_id: int) (pf: node): unit =
+      if (String.length word) = i_word
+        then pf.id <- Some(token_id)
+        else
+          begin
+            let successor = find_successor pf word.[i_word] in
+            aux word (i_word + 1) token_id successor
+          end
+    in
+    aux word 0 token_id pf
 
+  let learn (batch: string list) = 
+    let already_tokenized = Words.Tokenizer.learn batch in
+    let new_batch = List.map (fun (a,_) -> a) already_tokenized in
+    let build_word_tbl (batch: string list): string array =
+      let tbl = Hashtbl.create (List.length batch) in
+      List.iter (fun word -> Hashtbl.replace tbl word ()) batch;
+      tbl |> Hashtbl.to_seq_keys |> Array.of_seq
+    in
+    let word_tbl = build_word_tbl new_batch in
+    let pf = {
+      id = None ;
+      successors = []
+    } in
+    let token_of_id = Array.map (fun w -> Some(w)) word_tbl in
+    for i=0 to ((Array.length word_tbl) - 1)
+    do
+      add_word_in_pf word_tbl.(i) i pf
+    done;
+    {
+      prefix_tree = Node(pf);
+      token_of_id = token_of_id
+    }
 end
 
 module TokenizerCheckType : Definitions.Tokenizer.TOKENIZER = Tokenizer
